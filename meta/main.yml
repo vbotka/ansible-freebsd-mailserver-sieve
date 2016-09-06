@@ -1,0 +1,20 @@
+galaxy_info:
+  author: Vladimir Botka
+  description: Install and configure dovecot-pigeonhole (Sieve RFC5228).
+  company: https://botka.link
+  github_branch: master
+  license: BSD
+  min_ansible_version: 1.2
+  platforms:
+    - name: FreeBSD
+      versions:
+        - 10.3
+  galaxy_tags:
+    - installer
+    - mail
+    - mailserver
+    - freebsd
+    - dovecot
+    - pigeonhole
+    - sieve
+dependencies: []
