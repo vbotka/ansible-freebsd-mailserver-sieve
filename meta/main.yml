@@ -17,4 +17,5 @@ galaxy_info:
     - dovecot
     - pigeonhole
     - sieve
-dependencies: []
+dependencies:
+  - vbotka.ansible-freebsd-mailserver

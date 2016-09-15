@@ -77,6 +77,13 @@ ansible-playbook ~/.ansible/playbooks/freebsd-mailserver-sieve.yml
 6) Consider to test the mailserver with http://mxtoolbox.com/
 
 
+References
+----------
+
+[Pigeonhole Sieve Configuration](http://wiki2.dovecot.org/Pigeonhole/Sieve/Configuration)
+[ManageSieve Configuration](http://wiki2.dovecot.org/Pigeonhole/ManageSieve/Configuration)
+
+
 License
 -------
 

@@ -1,3 +1,4 @@
 ---
 # defaults file for vbotka.ansible-freebsd-mailserver-sieve
 
+freebsd_mailserver_dovecot_protocols: "imap pop3 lmtp sieve"

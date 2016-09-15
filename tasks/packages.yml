@@ -1,5 +1,5 @@
 
 - name: Install packages
-  pkgng: name={{item}} state="present"
+  portinstall: name={{item}} state="present"
   with_items:
     - dovecot-pigeonhole
