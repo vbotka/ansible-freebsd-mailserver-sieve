@@ -107,6 +107,8 @@ if header :contains "X-Spam-Flag" "YES" {
 ~/Maildir/Spam
 ```
 
+If this directory shall be visible in the Roundcube webmail create the Spam directory in Roundcube Settings->Folders
+
 References
 ----------
 
