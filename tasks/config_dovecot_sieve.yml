@@ -23,13 +23,18 @@
   notify: reload dovecot
   tags: config_dovecot_sieve
 
+  
 - name: Configure /usr/local/etc/dovecot/conf.d/15-lda.conf
   lineinfile: >
     dest="/usr/local/etc/dovecot/conf.d/15-lda.conf"
-    regexp="^mail_plugins"
-    line="mail_plugins = $mail_plugins sieve"
+    regexp="{{ item.regexp }}"
+    line="{{ item.line }}"
     insertafter="protocol lda {"
     backup="yes"
+  with_items:
+    - { regexp: "mail_plugins",  line: "mail_plugins = $mail_plugins sieve"}
+    - { regexp: "log_path",  line: "log_path = "}
+    - { regexp: "info_log_path",  line: "info_log_path = "}
   notify: reload dovecot
   tags: config_dovecot_sieve
                           

@@ -1,4 +1,10 @@
 ---
-# defaults file for vbotka.ansible-freebsd-mailserver-sieve
+# defaults for vbotka.ansible-freebsd-mailserver-sieve
+
+freebsd_install_method: "ports"
+freebsd_use_packages: "yes"
+
+freebsd_mailserver_sieve_packages:
+  - dovecot-pigeonhole
 
 freebsd_mailserver_dovecot_protocols: "imap pop3 lmtp sieve"
