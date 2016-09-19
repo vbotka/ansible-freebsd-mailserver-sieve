@@ -1,8 +1,9 @@
 ---
 # defaults for vbotka.ansible-freebsd-mailserver-sieve
 
-freebsd_install_method: "ports"
-freebsd_use_packages: "yes"
+freebsd_install_method: "packages"
+#freebsd_install_method: "ports"
+#freebsd_use_packages: "yes"
 
 freebsd_mailserver_sieve_packages:
   - dovecot-pigeonhole
