@@ -16,7 +16,7 @@ install:
   - pip install ansible
 
   # Fetch dependencies
-  - git clone https://github.com/vbotka/ansible-freebsd-mailserver.git tests/roles/vbotka.ansible-freebsd-mailserver
+  - git clone https://github.com/vbotka/ansible-freebsd-mailserver.git tests/roles/vbotka.freebsd-mailserver
     
   # Check ansible version
   - ansible --version

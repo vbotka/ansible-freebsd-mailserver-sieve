@@ -18,4 +18,4 @@ galaxy_info:
     - pigeonhole
     - sieve
 dependencies:
-  - vbotka.ansible-freebsd-mailserver
+  - vbotka.freebsd-mailserver
