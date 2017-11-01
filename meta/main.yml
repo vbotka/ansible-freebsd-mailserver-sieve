@@ -9,6 +9,7 @@ galaxy_info:
     - name: FreeBSD
       versions:
         - 10.3
+        - 11.0
   galaxy_tags:
     - installer
     - mail

@@ -1,8 +1,16 @@
 ---
-# tasks file for vbotka.ansible-freebsd-mailserver-sieve
+# tasks file for vbotka.freebsd-mailserver-sieve
 
 - include: packages.yml
-  tags: packages, freebsd-mailserver-sieve
+  tags:
+    - bsd_packages
+    - bsd_ports
+    - freebsd-mailserver-sieve
 
 - include: config_dovecot_sieve.yml
-  tags: config_dovecot_sieve, freebsd-mailserver-sieve
+  tags:
+    - config_dovecot_sieve
+    - freebsd-mailserver-sieve
+
+# EOF
+...

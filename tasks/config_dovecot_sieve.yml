@@ -4,7 +4,7 @@
   lineinfile: >
     dest="/usr/local/etc/dovecot/dovecot.conf"
     regexp="^protocols"
-    line="protocols = {{freebsd_mailserver_dovecot_protocols}}"
+    line="protocols = {{ freebsd_mailserver_dovecot_protocols }}"
     backup="yes"
   notify: reload dovecot
   tags: config_dovecot_sieve
@@ -57,3 +57,4 @@
   tags: config_dovecot_sieve
 
 # EOF
+...

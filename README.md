@@ -34,13 +34,13 @@ ansible mailserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh'
 2) Install role.
 
 ```
-ansible-galaxy install vbotka.ansible-freebsd-mailserver-sieve
+ansible-galaxy install vbotka.freebsd-mailserver-sieve
 ```
 
 3) Fit variables.
 
 ```
-~/.ansible/roles/vbotka.ansible-freebsd-mailserver-sieve/vars/main.yml
+~/.ansible/roles/vbotka.freebsd-mailserver-sieve/vars/main.yml
 ```
 
 4) Create playbook and inventory.
@@ -52,7 +52,7 @@ ansible-galaxy install vbotka.ansible-freebsd-mailserver-sieve
   become: yes
   become_method: sudo
   roles:
-    - role: vbotka.ansible-freebsd-mailserver-sieve
+    - role: vbotka.freebsd-mailserver-sieve
 ```
 
 ```
