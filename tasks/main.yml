@@ -1,16 +1,15 @@
 ---
 # tasks file for vbotka.freebsd-mailserver-sieve
 
-- include: packages.yml
-  tags:
-    - bsd_packages
-    - bsd_ports
-    - freebsd-mailserver-sieve
+- import_tasks: debug.yml
+  when: fm_ds_debug
+  tags: fm-ds-debug
 
-- include: config_dovecot_sieve.yml
-  tags:
-    - config_dovecot_sieve
-    - freebsd-mailserver-sieve
+- import_tasks: packages.yml
+  tags: fm-ds-packages
+
+- import_tasks: conf.yml
+  tags: fm-ds-conf
 
 # EOF
 ...

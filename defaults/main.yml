@@ -3,10 +3,17 @@
 
 freebsd_install_method: "packages"
 #freebsd_install_method: "ports"
-#freebsd_use_packages: "yes"
+freebsd_use_packages: "yes"
 
-freebsd_mailserver_sieve_packages:
-  - dovecot-pigeonhole
+fm_ds_debug: False
+fm_ds_packages:
+  - mail/dovecot-pigeonhole
+fm_ds_director:
+  - { regexp: "mail_plugins",  value: "$mail_plugins sieve"}
+  - { regexp: "log_path",  value: "/var/log/dovecot-lmtp-errors.log"}
+  - { regexp: "info_log_path",  value: "/var/log/dovecot-lmtp.log"}
+fm_ds_lda:
+  - { regexp: "mail_plugins",  line: "$mail_plugins sieve"}
 
 freebsd_mailserver_dovecot_protocols: "imap pop3 lmtp sieve"
 

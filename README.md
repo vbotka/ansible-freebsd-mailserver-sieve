@@ -7,19 +7,17 @@ Ansible role. Install and configure dovecot-pigeonhole (Sieve RFC5228).
 
 https://galaxy.ansible.com/vbotka/freebsd-mailserver-sieve/
 
-Tested with FreeBSD 10.3 at [digitalocean.com](https://cloud.digitalocean.com)
-
 
 Requirements
 ------------
 
-vbotka.ansible-freebsd-mailserver
+- [vbotka.freebsd-mailserver](https://galaxy.ansible.com/vbotka/freebsd-mailserver/)
 
 
 Variables
 ---------
 
-TBD (Check the defaults).
+TBD. Check the defaults.
 
 
 Workflow
@@ -28,41 +26,40 @@ Workflow
 1) Change shell to /bin/sh.
 
 ```
-ansible mailserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
+# ansible mailserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
 ```
 
 2) Install role.
 
 ```
-ansible-galaxy install vbotka.freebsd-mailserver-sieve
+# ansible-galaxy install vbotka.freebsd-mailserver-sieve
 ```
 
 3) Fit variables.
 
 ```
-~/.ansible/roles/vbotka.freebsd-mailserver-sieve/vars/main.yml
+# editor vbotka.freebsd-mailserver-sieve/vars/main.yml
 ```
 
 4) Create playbook and inventory.
 
 ```
-> cat ~/.ansible/playbooks/freebsd-mailserver-sieve.yml
----
+# cat freebsd-mailserver-sieve.yml
+
 - hosts: mailserver
-  become: yes
-  become_method: sudo
   roles:
-    - role: vbotka.freebsd-mailserver-sieve
+    - vbotka.freebsd-mailserver-sieve
 ```
 
 ```
-> cat ~/.ansible/hosts
+# cat hosts
 [mailserver]
-<MAILSERVER-IP-OR-FQDN>
-
+<mailserver-ip-or-fqdn>
 [mailserver:vars]
 ansible_connection=ssh
 ansible_user=freebsd
+ansible_become=yes
+ansible_become_method=sudo
 ansible_python_interpreter=/usr/local/bin/python2
 ansible_perl_interpreter=/usr/local/bin/perl
 ```
@@ -70,7 +67,7 @@ ansible_perl_interpreter=/usr/local/bin/perl
 5) Install and configure Sieve.
 
 ```
-ansible-playbook ~/.ansible/playbooks/freebsd-mailserver-sieve.yml
+# ansible-playbook freebsd-mailserver-sieve.yml
 ```
 
 6) Consider to test the mailserver with http://mxtoolbox.com/
@@ -109,6 +106,7 @@ if header :contains "X-Spam-Flag" "YES" {
 
 If this directory shall be visible in the Roundcube webmail create the Spam directory in Roundcube Settings->Folders
 
+
 References
 ----------
 
@@ -117,6 +115,7 @@ References
 [ManageSieve Configuration](http://wiki2.dovecot.org/Pigeonhole/ManageSieve/Configuration)
 
 [Pigeonhole Sieve examples](http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples)
+
 
 License
 -------
