@@ -15,7 +15,7 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.regexp }} = {{ item.value }}"
     backup: yes
-  with_items: "{{ fm_ds_director }}"
+  loop: "{{ fm_ds_director }}"
   notify: reload dovecot
   
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/15-lda.conf"
@@ -25,7 +25,7 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.regexp }} = {{ item.line }}"
     backup: yes
-  with_items: "{{ fm_ds_lda }}"
+  loop: "{{ fm_ds_lda }}"
   notify: reload dovecot
                           
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/20-lmtp.conf"
