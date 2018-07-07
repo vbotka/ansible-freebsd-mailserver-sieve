@@ -1,5 +1,5 @@
 ---
-# tasks file for vbotka.freebsd-mailserver-sieve
+# tasks for freebsd-mailserver-sieve
 
 - import_tasks: debug.yml
   when: fm_ds_debug

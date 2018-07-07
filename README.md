@@ -60,7 +60,7 @@ ansible_connection=ssh
 ansible_user=freebsd
 ansible_become=yes
 ansible_become_method=sudo
-ansible_python_interpreter=/usr/local/bin/python2
+ansible_python_interpreter=/usr/local/bin/python2.7
 ansible_perl_interpreter=/usr/local/bin/perl
 ```
 

@@ -1,6 +1,6 @@
 galaxy_info:
   author: Vladimir Botka
-  description: Install and configure dovecot-pigeonhole (Sieve RFC5228).
+  description: FreeBSD. Install and configure Dovecot-pigeonhole (Sieve RFC5228).
   company: https://botka.link
   github_branch: master
   license: BSD
@@ -9,11 +9,11 @@ galaxy_info:
     - name: FreeBSD
       versions:
         - 10.4
-        - 11.1
+        - 11.2
   galaxy_tags:
-    - FreeBSD
-    - Dovecot
-    - Pigeonhole
-    - Sieve
+    - freebsd
+    - dovecot
+    - pigeonhole
+    - sieve
 dependencies:
   - vbotka.freebsd-mailserver

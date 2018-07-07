@@ -1,5 +1,5 @@
 ---
-# defaults for vbotka.freebsd-mailserver-sieve
+# defaults for freebsd-mailserver-sieve
 
 freebsd_install_method: "packages"
 #freebsd_install_method: "ports"
