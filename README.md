@@ -3,7 +3,7 @@ freebsd-mailserver-sieve
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve)
 
-Ansible role. Install and configure dovecot-pigeonhole (Sieve RFC5228).
+[Ansible role.](https://galaxy.ansible.com/vbotka/freebsd-mailserver-sieve/) FreeBSD. Install and configure dovecot-pigeonhole (Sieve RFC5228).
 
 https://galaxy.ansible.com/vbotka/freebsd-mailserver-sieve/
 
