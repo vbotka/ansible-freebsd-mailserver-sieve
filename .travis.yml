@@ -25,7 +25,7 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
   # Dependencies
-  - cd tests/roles/ && ln -s vbotka.freebsd-mailserver vbotka.freebsd_mailserver
+  - (cd tests/roles/ && ln -s vbotka.freebsd-mailserver vbotka.freebsd_mailserver)
 
 script:
   # Basic role syntax check
