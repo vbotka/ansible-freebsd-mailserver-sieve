@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: freebsd_mailserver_sieve
   author: Vladimir Botka
   description: FreeBSD. Install and configure Dovecot-pigeonhole (Sieve RFC5228).
   company: https://botka.link
@@ -16,4 +17,4 @@ galaxy_info:
     - pigeonhole
     - sieve
 dependencies:
-  - vbotka.freebsd-mailserver
+  - vbotka.freebsd_mailserver

@@ -1,23 +1,21 @@
-freebsd-mailserver-sieve
+freebsd_mailserver_sieve
 ========================
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve)
 
-[Ansible role.](https://galaxy.ansible.com/vbotka/freebsd-mailserver-sieve/) FreeBSD. Install and configure dovecot-pigeonhole (Sieve RFC5228).
-
-https://galaxy.ansible.com/vbotka/freebsd-mailserver-sieve/
+[Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_mailserver_sieve/) FreeBSD. Install and configure dovecot-pigeonhole (Sieve RFC5228).
 
 
 Requirements
 ------------
 
-- [vbotka.freebsd-mailserver](https://galaxy.ansible.com/vbotka/freebsd-mailserver/)
+- [vbotka.freebsd_mailserver](https://galaxy.ansible.com/vbotka/freebsd_mailserver/)
 
 
 Variables
 ---------
 
-TBD. Check the defaults.
+TBD. Review the defaults and examples in vars.
 
 
 Workflow
@@ -32,13 +30,13 @@ Workflow
 2) Install role.
 
 ```
-# ansible-galaxy install vbotka.freebsd-mailserver-sieve
+# ansible-galaxy install vbotka.freebsd_mailserver_sieve
 ```
 
 3) Fit variables.
 
 ```
-# editor vbotka.freebsd-mailserver-sieve/vars/main.yml
+# editor vbotka.freebsd_mailserver_sieve/vars/main.yml
 ```
 
 4) Create playbook and inventory.
@@ -48,7 +46,7 @@ Workflow
 
 - hosts: mailserver
   roles:
-    - vbotka.freebsd-mailserver-sieve
+    - vbotka.freebsd_mailserver_sieve
 ```
 
 ```
