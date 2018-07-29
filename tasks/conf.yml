@@ -5,7 +5,7 @@
     dest: "/usr/local/etc/dovecot/dovecot.conf"
     regexp: "^protocols"
     line: "protocols = {{ freebsd_mailserver_dovecot_protocols }}"
-    backup: yes
+    backup: "{{ fm_ds_backup_conf }}"
   notify: reload dovecot
 
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/10-director.conf"
@@ -14,7 +14,7 @@
     insertafter: "^protocol lmtp"
     regexp: "{{ item.regexp }}"
     line: "{{ item.regexp }} = {{ item.value }}"
-    backup: yes
+    backup: "{{ fm_ds_backup_conf }}"
   loop: "{{ fm_ds_director }}"
   notify: reload dovecot
   
@@ -24,7 +24,7 @@
     insertafter: "protocol lda {"
     regexp: "{{ item.regexp }}"
     line: "{{ item.regexp }} = {{ item.line }}"
-    backup: yes
+    backup: "{{ fm_ds_backup_conf }}"
   loop: "{{ fm_ds_lda }}"
   notify: reload dovecot
                           
@@ -34,7 +34,7 @@
     insertafter: "protocol lmtp {"
     regexp: "^mail_plugins"
     line: "mail_plugins = quota, sieve"
-    backup: yes
+    backup: "{{ fm_ds_backup_conf }}"
   notify: reload dovecot
 
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/90-plugin.conf"
@@ -44,7 +44,7 @@
     owner: "root"
     group: "www"
     mode: "0644"
-    backup: yes
+    backup: "{{ fm_ds_backup_conf }}"
   notify: reload dovecot
 
 # EOF
