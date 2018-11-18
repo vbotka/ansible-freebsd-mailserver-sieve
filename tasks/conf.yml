@@ -17,7 +17,7 @@
     backup: "{{ fm_ds_backup_conf }}"
   loop: "{{ fm_ds_director }}"
   notify: reload dovecot
-  
+
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/15-lda.conf"
   lineinfile:
     dest: "/usr/local/etc/dovecot/conf.d/15-lda.conf"
@@ -27,7 +27,7 @@
     backup: "{{ fm_ds_backup_conf }}"
   loop: "{{ fm_ds_lda }}"
   notify: reload dovecot
-                          
+
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/20-lmtp.conf"
   lineinfile:
     dest: "/usr/local/etc/dovecot/conf.d/20-lmtp.conf"
