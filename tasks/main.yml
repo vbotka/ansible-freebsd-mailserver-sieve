@@ -3,7 +3,7 @@
 
 - import_tasks: debug.yml
   when: fm_ds_debug
-  tags: fm-ds-debug
+  tags: [fm-ds-debug, always]
 
 - import_tasks: packages.yml
   tags: fm-ds-packages
