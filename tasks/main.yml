@@ -1,12 +1,16 @@
 ---
-# tasks for freebsd-mailserver-sieve
+# tasks for freebsd_mailserver_sieve
 
 - import_tasks: debug.yml
-  when: fm_ds_debug
+  when: fm_ds_debug|bool
   tags: [fm-ds-debug, always]
 
 - import_tasks: packages.yml
   tags: fm-ds-packages
+
+- import_tasks: sanity.yml
+  when: fm_ds_sanity|bool
+  tags: fm-ds-sanity
 
 - import_tasks: conf.yml
   tags: fm-ds-conf

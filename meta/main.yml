@@ -18,6 +18,5 @@ galaxy_info:
     - dovecot
     - pigeonhole
     - sieve
-dependencies:
-  - vbotka.freebsd_mailserver
+dependencies: []
 ...

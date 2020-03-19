@@ -1,16 +1,32 @@
 ---
-# defaults for freebsd-mailserver-sieve
+# defaults for freebsd_mailserver_sieve
 
-freebsd_install_method: "packages"
-#freebsd_install_method: "ports"
-freebsd_use_packages: yes
+fm_ds_debug: false
+fm_ds_backup_conf: false
+
+# packages
+freebsd_install_method: packages
+#freebsd_install_method: ports
+freebsd_use_packages: true
 freebsd_install_retries: 10
 freebsd_install_delay: 5
 
-fm_ds_debug: False
-fm_ds_backup_conf: no
 fm_ds_packages:
   - mail/dovecot-pigeonhole
+
+# sanity
+fm_ds_sanity: true
+fm_ds_sanity_platform: true
+fm_ds_sanity_ansible_version: true
+fm_ds_sanity_packages: true
+
+# packages test required
+al_sanity_packages_required:
+  FreeBSD:
+    default:
+      - - dovecot
+
+# plugins
 fm_ds_director:
   - {regexp: "mail_plugins", value: "$mail_plugins sieve"}
   - {regexp: "log_path", value: "/var/log/dovecot-lmtp-errors.log"}
@@ -18,6 +34,7 @@ fm_ds_director:
 fm_ds_lda:
   - {regexp: "mail_plugins", line: "$mail_plugins sieve"}
 
+# protocols
 freebsd_mailserver_dovecot_protocols: "imap pop3 lmtp sieve"
 
 # EOF

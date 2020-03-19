@@ -1,56 +1,54 @@
-freebsd_mailserver_sieve
-========================
+## freebsd_mailserver_sieve
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_mailserver_sieve/) FreeBSD. Install and configure dovecot-pigeonhole (Sieve RFC5228).
 
 
-Requirements
-------------
+# Dependencies
 
-- [vbotka.freebsd_mailserver](https://galaxy.ansible.com/vbotka/freebsd_mailserver/)
-
-
-Variables
----------
-
-TBD. Review the defaults and examples in vars.
+- [vbotka.freebsd_mailserver](https://galaxy.ansible.com/vbotka/freebsd_mailserver/) Install and configure Postfix and Dovecot.
+- [vbotka.ansible_lib](https://galaxy.ansible.com/vbotka/ansible_lib) Library of Ansible tasks.
 
 
-Workflow
---------
+# Variables
 
-1) Change shell to /bin/sh.
+Review the defaults and examples in vars.
+
+
+# Workflow
+
+1) Change shell to /bin/sh
 
 ```
-# ansible mailserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
+shell> ansible mailserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
 ```
 
-2) Install role.
+2) Install role
 
 ```
-# ansible-galaxy install vbotka.freebsd_mailserver_sieve
+shell> ansible-galaxy install vbotka.freebsd_mailserver_sieve
 ```
 
-3) Fit variables.
+3) Fit variables
 
 ```
-# editor vbotka.freebsd_mailserver_sieve/vars/main.yml
+shell> editor vbotka.freebsd_mailserver_sieve/vars/main.yml
 ```
 
-4) Create playbook and inventory.
+4) Create playbook and inventory
 
 ```
-# cat freebsd-mailserver-sieve.yml
+shell> cat freebsd-mailserver-sieve.yml
 
 - hosts: mailserver
   roles:
+    - vbotka.freebsd_mailserver
     - vbotka.freebsd_mailserver_sieve
 ```
 
 ```
-# cat hosts
+shell> cat hosts
 [mailserver]
 <mailserver-ip-or-fqdn>
 [mailserver:vars]
@@ -58,21 +56,20 @@ ansible_connection=ssh
 ansible_user=freebsd
 ansible_become=yes
 ansible_become_method=sudo
-ansible_python_interpreter=/usr/local/bin/python3.6
+ansible_python_interpreter=/usr/local/bin/python3.7
 ansible_perl_interpreter=/usr/local/bin/perl
 ```
 
 5) Install and configure Sieve.
 
 ```
-# ansible-playbook freebsd-mailserver-sieve.yml
+shell> ansible-playbook freebsd-mailserver-sieve.yml
 ```
 
 6) Consider to test the mailserver with http://mxtoolbox.com/
 
 
-User configuration
-------------------
+# User configuration
 
 1) Create .forward in user home directory
 
@@ -80,7 +77,7 @@ User configuration
 | "/usr/local/libexec/dovecot/dovecot-lda"
 ```
 
-2) # Create filter /home/user/sieve/managesieve.sieve
+2) Create filter /home/user/sieve/managesieve.sieve
 
 ```
 require ["fileinto"];
@@ -105,23 +102,18 @@ if header :contains "X-Spam-Flag" "YES" {
 If this directory shall be visible in the Roundcube webmail create the Spam directory in Roundcube Settings->Folders
 
 
-References
-----------
+# References
 
-[Pigeonhole Sieve Configuration](http://wiki2.dovecot.org/Pigeonhole/Sieve/Configuration)
-
-[ManageSieve Configuration](http://wiki2.dovecot.org/Pigeonhole/ManageSieve/Configuration)
-
-[Pigeonhole Sieve examples](http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples)
+- [Pigeonhole Sieve Configuration](http://wiki2.dovecot.org/Pigeonhole/Sieve/Configuration)
+- [ManageSieve Configuration](http://wiki2.dovecot.org/Pigeonhole/ManageSieve/Configuration)
+- [Pigeonhole Sieve examples](http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples)
 
 
-License
--------
+# License
 
 [![license](https://img.shields.io/badge/license-BSD-red.svg)](https://www.freebsd.org/doc/en/articles/bsdl-gpl/article.html)
 
 
-Author Information
-------------------
+# Author Information
 
 [Vladimir Botka](https://botka.link)
