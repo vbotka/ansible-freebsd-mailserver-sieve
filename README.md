@@ -6,11 +6,13 @@
 
 Please feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-freebsd-mailserver-sieve/issues).
 
+
 ## Dependencies
 
 - [vbotka.freebsd_mailserver](https://galaxy.ansible.com/vbotka/freebsd_mailserver/) Install and configure Postfix and Dovecot.
 - [vbotka.ansible_lib](https://galaxy.ansible.com/vbotka/ansible_lib) Library of Ansible tasks.
 
+The dependencies are not listed in the meta file. Install the roles manually.
 
 ## Variables
 
