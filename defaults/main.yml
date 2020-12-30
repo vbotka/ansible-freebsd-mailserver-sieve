@@ -37,5 +37,8 @@ fm_ds_lda:
 # protocols
 freebsd_mailserver_dovecot_protocols: "imap pop3 lmtp sieve"
 
+# sanity: override supported versions
+al_supported_versions_override: ['11.3', '11.4', '12.0', '12.1', '12.2']
+
 # EOF
 ...
