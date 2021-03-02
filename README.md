@@ -1,10 +1,12 @@
 # freebsd_mailserver_sieve
 
-[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_mailserver_sieve)[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_mailserver_sieve/) FreeBSD. Install and configure dovecot-pigeonhole (Sieve RFC5228).
 
-Please feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-freebsd-mailserver-sieve/issues).
+Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-freebsd-mailserver-sieve/issues).
+
+[Contributions are welcome](https://github.com/firstcontributions/first-contributions).
 
 
 ## Dependencies
@@ -13,6 +15,7 @@ Please feel free to [share your feedback and report issues](https://github.com/v
 - [vbotka.ansible_lib](https://galaxy.ansible.com/vbotka/ansible_lib) Library of Ansible tasks.
 
 The dependencies are not listed in the meta file. Install the roles manually.
+
 
 ## Variables
 
