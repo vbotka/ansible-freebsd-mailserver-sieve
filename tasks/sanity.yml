@@ -7,28 +7,43 @@
         file: meta/main.yml
       when: galaxy_info is undefined
     - name: "sanity: Get role_name."
-      set_fact:
+      ansible.builtin.set_fact:
         al_sanity_role_name: "{{ role_name }}"
-  when: fm_ds_sanity_platform|bool or
-        fm_ds_sanity_ansible_version|bool
+  when: fm_ds_sanity_platform|bool or fm_ds_sanity_ansible_version|bool
 
-- name: "sanity: Include vbotka.ansible_lib al_sanity_platform."
-  include_role:
-    name: vbotka.ansible_lib
-    tasks_from: al_sanity_platform
+- name: "sanity: Test supported platform."
+  block:
+    - name: "sanity: Instantiate variable al_supported_versions_override"
+      ansible.builtin.set_fact:
+        al_supported_versions_override: "{{ al_supported_versions_override }}"
+        al_sanity_platform_warning: "{{ al_sanity_platform_warning }}"
+    - name: "sanity: Include vbotka.ansible_lib al_sanity_platform."
+      include_role:
+        name: vbotka.ansible_lib
+        tasks_from: al_sanity_platform
   when: fm_ds_sanity_platform|bool
 
-- name: "sanity: Include vbotka.ansible_lib al_sanity_ansible_version."
+- name: "sanity: Test supported version of Ansible."
   include_role:
     name: vbotka.ansible_lib
     tasks_from: al_sanity_ansible_version
   when: fm_ds_sanity_ansible_version|bool
 
-- name: "sanity: Include vbotka.ansible_lib al_sanity_packages."
-  include_role:
-    name: vbotka.ansible_lib
-    tasks_from: al_sanity_packages
+- name: "sanity: Test installed packages."
+  block:
+    - name: "sanity: Instantiate variable al_sanity_packages_required"
+      ansible.builtin.set_fact:
+        al_sanity_packages_required: "{{ al_sanity_packages_required }}"
+    - name: "sanity: Include vbotka.ansible_lib al_sanity_packages."
+      include_role:
+        name: vbotka.ansible_lib
+        tasks_from: al_sanity_packages
   when: fm_ds_sanity_packages|bool
+
+- name: "sanity: Test fm_dovecot_enable exists."
+  ansible.builtin.fail:
+    msg: "[ERR] Variable fm_dovecot_enable does not exist."
+  when: fm_dovecot_enable is undefined
 
 # EOF
 ...
