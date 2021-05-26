@@ -9,12 +9,19 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/a
 [Contributions are welcome](https://github.com/firstcontributions/first-contributions).
 
 
-## Dependencies
+## Requirements and dependencies
+
+### Roles
+
+The dependencies are not listed in the meta file. Install them manually.
 
 - [vbotka.freebsd_mailserver](https://galaxy.ansible.com/vbotka/freebsd_mailserver/) Install and configure Postfix and Dovecot.
 - [vbotka.ansible_lib](https://galaxy.ansible.com/vbotka/ansible_lib) Library of Ansible tasks.
 
-The dependencies are not listed in the meta file. Install the roles manually.
+
+### Collections
+
+- community.general
 
 
 ## Variables
@@ -30,13 +37,16 @@ Review the defaults and examples in vars.
 shell> ansible mailserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
 ```
 
-2) Install role
+2) Install roles and collections
 
 ```
-shell> ansible-galaxy install vbotka.freebsd_mailserver_sieve
+shell> ansible-galaxy role install vbotka.freebsd_mailserver
+shell> ansible-galaxy role install vbotka.freebsd_mailserver_sieve
+shell> ansible-galaxy role install vbotka.ansible_lib
+shell> ansible-galaxy collection install community.general
 ```
 
-3) Fit variables
+3) Fit variables, e.g. in vars/main.yml
 
 ```
 shell> editor vbotka.freebsd_mailserver_sieve/vars/main.yml

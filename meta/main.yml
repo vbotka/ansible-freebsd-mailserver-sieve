@@ -19,4 +19,6 @@ galaxy_info:
     - pigeonhole
     - sieve
 dependencies: []
+collections:
+  - community.general
 ...

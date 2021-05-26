@@ -1,48 +1,50 @@
 ---
 
+# TODO: Create blocks and use blockinfile instead of lineinfile
+
 - name: "conf: Add Sieve protocol to /usr/local/etc/dovecot/dovecot.conf"
-  lineinfile:
-    dest: "/usr/local/etc/dovecot/dovecot.conf"
-    regexp: "^protocols"
+  ansible.builtin.lineinfile:
+    dest: /usr/local/etc/dovecot/dovecot.conf
+    regexp: '^\s*protocols\s*=(.*)$'
     line: "protocols = {{ freebsd_mailserver_dovecot_protocols }}"
     backup: "{{ fm_ds_backup_conf }}"
   notify: reload dovecot
 
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/10-director.conf"
-  lineinfile:
-    dest: "/usr/local/etc/dovecot/conf.d/10-director.conf"
-    insertafter: "^protocol lmtp"
-    regexp: "{{ item.regexp }}"
+  ansible.builtin.lineinfile:
+    dest: /usr/local/etc/dovecot/conf.d/10-director.conf
+    insertafter: '^\s*protocol\s+lmtp\s+{'
+    regexp: '^\s*{{ item.regexp }}\s*=(.*)$'
     line: "{{ item.regexp }} = {{ item.value }}"
     backup: "{{ fm_ds_backup_conf }}"
   loop: "{{ fm_ds_director }}"
   notify: reload dovecot
 
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/15-lda.conf"
-  lineinfile:
-    dest: "/usr/local/etc/dovecot/conf.d/15-lda.conf"
-    insertafter: "protocol lda {"
-    regexp: "{{ item.regexp }}"
+  ansible.builtin.lineinfile:
+    dest: /usr/local/etc/dovecot/conf.d/15-lda.conf
+    insertafter: '^\s*protocol\s+lda\s+{'
+    regexp: '^\s*{{ item.regexp }}\s*=(.*)$'
     line: "{{ item.regexp }} = {{ item.line }}"
     backup: "{{ fm_ds_backup_conf }}"
   loop: "{{ fm_ds_lda }}"
   notify: reload dovecot
 
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/20-lmtp.conf"
-  lineinfile:
-    dest: "/usr/local/etc/dovecot/conf.d/20-lmtp.conf"
-    insertafter: "protocol lmtp {"
-    regexp: "^mail_plugins"
+  ansible.builtin.lineinfile:
+    dest: /usr/local/etc/dovecot/conf.d/20-lmtp.conf
+    insertafter: '^\s*protocol lmtp {'
+    regexp: '^\s*mail_plugins\s*=(.*)$'
     line: "mail_plugins = quota, sieve"
     backup: "{{ fm_ds_backup_conf }}"
   notify: reload dovecot
 
 - name: "conf: Configure /usr/local/etc/dovecot/conf.d/90-plugin.conf"
-  template:
-    src: "90-plugin.conf"
-    dest: "/usr/local/etc/dovecot/conf.d/90-plugin.conf"
-    owner: "root"
-    group: "www"
+  ansible.builtin.template:
+    src: 90-plugin.conf
+    dest: /usr/local/etc/dovecot/conf.d/90-plugin.conf
+    owner: root
+    group: www
     mode: "0644"
     backup: "{{ fm_ds_backup_conf }}"
   notify: reload dovecot
