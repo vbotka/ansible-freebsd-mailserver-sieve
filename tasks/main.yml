@@ -1,19 +1,23 @@
 ---
 # tasks for freebsd_mailserver_sieve
 
-- import_tasks: debug.yml
+- name: Import debug.yml
+  ansible.builtin.import_tasks: debug.yml
   when: fm_ds_debug|bool
   tags: [fm-ds-debug, always]
 
-- import_tasks: packages.yml
+- name: Import packages.yml
+  ansible.builtin.import_tasks: packages.yml
   when: fm_ds_install|bool
   tags: fm-ds-packages
 
-- import_tasks: sanity.yml
+- name: Import sanity.yml
+  ansible.builtin.import_tasks: sanity.yml
   when: fm_ds_sanity|bool
   tags: fm-ds-sanity
 
-- import_tasks: conf.yml
+- name: Import conf.yml
+  ansible.builtin.import_tasks: conf.yml
   tags: fm-ds-conf
 
 # EOF
