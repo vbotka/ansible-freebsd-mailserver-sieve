@@ -20,7 +20,7 @@ fm_ds_sanity: true
 fm_ds_sanity_platform: true
 fm_ds_sanity_ansible_version: true
 fm_ds_sanity_packages: true
-al_supported_versions_override: ['11.3', '11.4', '12.0', '12.1', '12.2', '13.0']
+al_supported_versions_override: ['12.2', '13.0']
 al_sanity_platform_warning: false
 
 # packages test required

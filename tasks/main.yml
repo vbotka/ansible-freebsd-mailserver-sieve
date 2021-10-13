@@ -4,7 +4,7 @@
 - name: Import debug.yml
   ansible.builtin.import_tasks: debug.yml
   when: fm_ds_debug|bool
-  tags: [fm-ds-debug, always]
+  tags: fm-ds-debug
 
 - name: Import packages.yml
   ansible.builtin.import_tasks: packages.yml
