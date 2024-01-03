@@ -31,30 +31,35 @@ Review the defaults and examples in vars.
 
 ## Workflow
 
-1) Change shell to /bin/sh
+1) Change shell to /bin/sh if necessary
 
-```
+```bash
 shell> ansible mailserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
 ```
 
-2) Install roles and collections
+2) Install roles
 
-```
+```bash
 shell> ansible-galaxy role install vbotka.freebsd_mailserver
 shell> ansible-galaxy role install vbotka.freebsd_mailserver_sieve
 shell> ansible-galaxy role install vbotka.ansible_lib
+```
+
+3) Install collections if necessary
+
+```bash
 shell> ansible-galaxy collection install community.general
 ```
 
-3) Fit variables, e.g. in vars/main.yml
+4) Fit variables, for example in vars/main.yml
 
-```
+```bash
 shell> editor vbotka.freebsd_mailserver_sieve/vars/main.yml
 ```
 
-4) Create playbook and inventory
+5) Create the playbook and inventory
 
-```
+```yaml
 shell> cat freebsd-mailserver-sieve.yml
 
 - hosts: mailserver
@@ -63,7 +68,7 @@ shell> cat freebsd-mailserver-sieve.yml
     - vbotka.freebsd_mailserver_sieve
 ```
 
-```
+```ini
 shell> cat hosts
 [mailserver]
 <mailserver-ip-or-fqdn>
@@ -72,30 +77,31 @@ ansible_connection=ssh
 ansible_user=freebsd
 ansible_become=yes
 ansible_become_method=sudo
-ansible_python_interpreter=/usr/local/bin/python3.7
+ansible_python_interpreter=/usr/local/bin/python3.9
 ansible_perl_interpreter=/usr/local/bin/perl
 ```
 
-5) Install and configure Sieve.
+6) Install and configure Sieve.
 
-```
+```bash
 shell> ansible-playbook freebsd-mailserver-sieve.yml
 ```
 
-6) Consider to test the mailserver with http://mxtoolbox.com/
+7) Consider to test the mailserver with http://mxtoolbox.com/
 
 
 ## User configuration
 
 1) Create .forward in user home directory
 
-```
+```bash
+shell> cat .forward
 | "/usr/local/libexec/dovecot/dovecot-lda"
 ```
 
 2) Create filter /home/user/sieve/managesieve.sieve
 
-```
+```bash
 require ["fileinto"];
 # rule:[spam-01]
 if allof (header :contains "subject" "*****SPAM*****")
@@ -111,7 +117,7 @@ if header :contains "X-Spam-Flag" "YES" {
 
 3) Create directory for spam
 
-```
+```bash
 ~/Maildir/Spam
 ```
 
