@@ -132,4 +132,4 @@ If this directory shall be visible in the Roundcube webmail create the Spam dire
 
 ## Author Information
 
-[Vladimir Botka](https://botka.link)
+[Vladimir Botka](https://botka.info)
