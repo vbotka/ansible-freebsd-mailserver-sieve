@@ -21,6 +21,7 @@ Major Changes
 Minor Changes
 -------------
 * Update README
+* Formatting lines in conf.yml
 
 Bugfixes
 --------
