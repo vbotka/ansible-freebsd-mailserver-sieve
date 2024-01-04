@@ -30,3 +30,4 @@ Bugfixes
 
 Breaking Changes / Porting Guide
 --------------------------------
+* Change tags. Replace dash '-' by underscore '_'
