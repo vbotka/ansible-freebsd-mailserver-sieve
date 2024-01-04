@@ -22,9 +22,8 @@ Minor Changes
 -------------
 * Update README
 * Formatting lines in conf.yml
-* Formatting strings in defaults/main.yml
-* Formatting strings in packages.yml
 * Formatting debug.yml
+* Formatting strings in defaults/main.yml, packages.yml, sanity.yml
 
 Bugfixes
 --------
