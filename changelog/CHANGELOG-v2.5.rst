@@ -23,6 +23,7 @@ Minor Changes
 * Update README
 * Formatting lines in conf.yml
 * Formatting strings in defaults/main.yml
+* Formatting debug.yml
 
 Bugfixes
 --------
