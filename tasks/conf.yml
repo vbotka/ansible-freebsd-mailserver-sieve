@@ -15,7 +15,7 @@
     dest: /usr/local/etc/dovecot/conf.d/10-director.conf
     insertafter: '^\s*protocol\s+lmtp\s+{'
     regexp: '^\s*{{ item.regexp }}\s*=(.*)$'
-    line: "{{ item.regexp }} = {{ item.value }}"
+    line: "  {{ item.regexp }} = {{ item.value }}"
     backup: "{{ fm_ds_backup_conf }}"
   loop: "{{ fm_ds_director }}"
   notify: reload dovecot
@@ -25,7 +25,7 @@
     dest: /usr/local/etc/dovecot/conf.d/15-lda.conf
     insertafter: '^\s*protocol\s+lda\s+{'
     regexp: '^\s*{{ item.regexp }}\s*=(.*)$'
-    line: "{{ item.regexp }} = {{ item.line }}"
+    line: "  {{ item.regexp }} = {{ item.line }}"
     backup: "{{ fm_ds_backup_conf }}"
   loop: "{{ fm_ds_lda }}"
   notify: reload dovecot
@@ -35,7 +35,7 @@
     dest: /usr/local/etc/dovecot/conf.d/20-lmtp.conf
     insertafter: '^\s*protocol lmtp {'
     regexp: '^\s*mail_plugins\s*=(.*)$'
-    line: "mail_plugins = quota, sieve"
+    line: "  mail_plugins = quota, sieve"
     backup: "{{ fm_ds_backup_conf }}"
   notify: reload dovecot
 
@@ -45,7 +45,7 @@
     dest: /usr/local/etc/dovecot/conf.d/90-plugin.conf
     owner: root
     group: www
-    mode: "0644"
+    mode: '0644'
     backup: "{{ fm_ds_backup_conf }}"
   notify: reload dovecot
 

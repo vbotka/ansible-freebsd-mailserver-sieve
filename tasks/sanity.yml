@@ -42,7 +42,7 @@
 
 - name: "sanity: Test fm_dovecot_enable exists."
   ansible.builtin.fail:
-    msg: "[ERR] Variable fm_dovecot_enable does not exist."
+    msg: '[ERR] Variable fm_dovecot_enable does not exist.'
   when: fm_dovecot_enable is undefined
 
 # EOF
