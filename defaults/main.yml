@@ -1,5 +1,6 @@
 ---
 # defaults for freebsd_mailserver_sieve
+fm_ds_role_version: 2.6.0
 
 fm_ds_install: true
 fm_ds_debug: false
@@ -7,7 +8,7 @@ fm_ds_backup_conf: false
 
 # packages
 freebsd_install_method: packages
-#freebsd_install_method: ports
+# freebsd_install_method: ports
 freebsd_use_packages: true
 freebsd_install_retries: 10
 freebsd_install_delay: 5
@@ -20,7 +21,9 @@ fm_ds_sanity: true
 fm_ds_sanity_platform: true
 fm_ds_sanity_ansible_version: true
 fm_ds_sanity_packages: true
-al_supported_versions_override: ['12.2', '13.0']
+
+# See vbotka.freebsd_mailserver
+# al_supported_versions_override: []
 al_sanity_platform_warning: false
 
 # packages test required
@@ -31,14 +34,13 @@ al_sanity_packages_required:
 
 # plugins
 fm_ds_director:
-  - {regexp: mail_plugins, value: $mail_plugins sieve}
-  - {regexp: log_path, value: /var/log/dovecot-lmtp-errors.log}
-  - {regexp: info_log_path, value: /var/log/dovecot-lmtp.log}
+  - { regexp: mail_plugins, value: $mail_plugins sieve }
+  - { regexp: log_path, value: /var/log/dovecot-lmtp-errors.log }
+  - { regexp: info_log_path, value: /var/log/dovecot-lmtp.log }
 fm_ds_lda:
-  - {regexp: mail_plugins, line: $mail_plugins sieve}
+  - { regexp: mail_plugins, line: $mail_plugins sieve }
 
 # protocols
 freebsd_mailserver_dovecot_protocols: imap pop3 lmtp sieve
 
 # EOF
-...

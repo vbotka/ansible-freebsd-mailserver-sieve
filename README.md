@@ -1,6 +1,8 @@
 # freebsd_mailserver_sieve
 
-[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_mailserver_sieve)[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_mailserver_sieve)
+[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-mailserver-sieve)
+[![GitHub tag](https://img.shields.io/github/v/tag/vbotka/ansible-freebsd-mailserver-sieve)](https://github.com/vbotka/ansible-freebsd-mailserver-sieve/tags)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_mailserver_sieve/) FreeBSD. Install and configure dovecot-pigeonhole (Sieve RFC5228).
 
@@ -21,12 +23,13 @@ The dependencies are not listed in the meta file. Install them manually.
 
 ### Collections
 
-- community.general
+* community.crypto
+* community.general
 
 
 ## Variables
 
-Review the defaults and examples in vars.
+See the defaults and examples in vars.
 
 
 ## Workflow
@@ -48,14 +51,11 @@ shell> ansible-galaxy role install vbotka.ansible_lib
 3) Install collections if necessary
 
 ```bash
+shell> ansible-galaxy collection install community.crypto
 shell> ansible-galaxy collection install community.general
 ```
 
-4) Fit variables, for example in vars/main.yml
-
-```bash
-shell> editor vbotka.freebsd_mailserver_sieve/vars/main.yml
-```
+4) Fit variables to your needs.
 
 5) Create the playbook and inventory
 
@@ -122,6 +122,17 @@ if header :contains "X-Spam-Flag" "YES" {
 ```
 
 If this directory shall be visible in the Roundcube webmail create the Spam directory in Roundcube Settings->Folders
+
+
+## Ansible lint
+
+Use the configuration file *.ansible-lint.local* when running
+*ansible-lint*. Some rules might be disabled and some warnings might
+be ignored. See the notes in the configuration file.
+
+```bash
+shell> ansible-lint -c .ansible-lint.local
+```
 
 
 ## References

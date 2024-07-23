@@ -1,49 +1,50 @@
 ---
-
-- name: "sanity: Get meta-data and role_name."
+- name: "Sanity: Get meta-data and role_name."
+  when: fm_ds_sanity_platform|bool or fm_ds_sanity_ansible_version|bool
   block:
-    - name: "sanity: Get meta-data."
+    - name: "Sanity: Get meta-data."
       ansible.builtin.include_vars:
         file: meta/main.yml
       when: galaxy_info is undefined
-    - name: "sanity: Get role_name."
+
+    - name: "Sanity: Get role_name."
       ansible.builtin.set_fact:
         al_sanity_role_name: "{{ role_name }}"
-  when: fm_ds_sanity_platform|bool or fm_ds_sanity_ansible_version|bool
 
-- name: "sanity: Test supported platform."
+- name: "Sanity: Test supported platform."
+  when: fm_ds_sanity_platform | bool
   block:
-    - name: "sanity: Instantiate variable al_supported_versions_override"
+    - name: "Sanity: Instantiate variable al_supported_versions_override"
       ansible.builtin.set_fact:
         al_supported_versions_override: "{{ al_supported_versions_override }}"
         al_sanity_platform_warning: "{{ al_sanity_platform_warning }}"
-    - name: "sanity: Include vbotka.ansible_lib al_sanity_platform."
+
+    - name: "Sanity: Include vbotka.ansible_lib al_sanity_platform."
       ansible.builtin.include_role:
         name: vbotka.ansible_lib
         tasks_from: al_sanity_platform
-  when: fm_ds_sanity_platform|bool
 
-- name: "sanity: Test supported version of Ansible."
+- name: "Sanity: Test supported version of Ansible."
   ansible.builtin.include_role:
     name: vbotka.ansible_lib
     tasks_from: al_sanity_ansible_version
-  when: fm_ds_sanity_ansible_version|bool
+  when: fm_ds_sanity_ansible_version | bool
 
-- name: "sanity: Test installed packages."
+- name: "Sanity: Test installed packages."
+  when: fm_ds_sanity_packages | bool
   block:
-    - name: "sanity: Instantiate variable al_sanity_packages_required"
+    - name: "Sanity: Instantiate variable al_sanity_packages_required"
       ansible.builtin.set_fact:
         al_sanity_packages_required: "{{ al_sanity_packages_required }}"
-    - name: "sanity: Include vbotka.ansible_lib al_sanity_packages."
+
+    - name: "Sanity: Include vbotka.ansible_lib al_sanity_packages."
       ansible.builtin.include_role:
         name: vbotka.ansible_lib
         tasks_from: al_sanity_packages
-  when: fm_ds_sanity_packages|bool
 
-- name: "sanity: Test fm_dovecot_enable exists."
+- name: "Sanity: Test fm_dovecot_enable exists."
   ansible.builtin.fail:
-    msg: '[ERR] Variable fm_dovecot_enable does not exist.'
+    msg: "[ERR] Variable fm_dovecot_enable does not exist."
   when: fm_dovecot_enable is undefined
 
 # EOF
-...

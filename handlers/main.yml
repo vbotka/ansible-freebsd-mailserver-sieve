@@ -1,17 +1,18 @@
 ---
 # handlers for freebsd_mailserver_sieve
 
-- name: reload dovecot
+- name: Reload dovecot
+  listen: reload dovecot
   ansible.builtin.service:
     name: dovecot
     state: reloaded
-  when: fm_dovecot_enable|default(false)|bool
+  when: fm_dovecot_enable | d(false) | bool
 
-- name: restart dovecot
+- name: Restart dovecot
+  listen: restart dovecot
   ansible.builtin.service:
     name: dovecot
     state: restarted
-  when: fm_dovecot_enable|default(false)|bool
+  when: fm_dovecot_enable | d(false) | bool
 
 # EOF
-...
