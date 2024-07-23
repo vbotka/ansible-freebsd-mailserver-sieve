@@ -8,7 +8,7 @@ fm_ds_backup_conf: false
 
 # packages
 freebsd_install_method: packages
-#freebsd_install_method: ports
+# freebsd_install_method: ports
 freebsd_use_packages: true
 freebsd_install_retries: 10
 freebsd_install_delay: 5
@@ -34,14 +34,13 @@ al_sanity_packages_required:
 
 # plugins
 fm_ds_director:
-  - {regexp: mail_plugins, value: $mail_plugins sieve}
-  - {regexp: log_path, value: /var/log/dovecot-lmtp-errors.log}
-  - {regexp: info_log_path, value: /var/log/dovecot-lmtp.log}
+  - { regexp: mail_plugins, value: $mail_plugins sieve }
+  - { regexp: log_path, value: /var/log/dovecot-lmtp-errors.log }
+  - { regexp: info_log_path, value: /var/log/dovecot-lmtp.log }
 fm_ds_lda:
-  - {regexp: mail_plugins, line: $mail_plugins sieve}
+  - { regexp: mail_plugins, line: $mail_plugins sieve }
 
 # protocols
 freebsd_mailserver_dovecot_protocols: imap pop3 lmtp sieve
 
 # EOF
-...

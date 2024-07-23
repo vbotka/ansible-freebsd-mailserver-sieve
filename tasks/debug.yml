@@ -1,5 +1,4 @@
 ---
-
 - name: Debug
   vars:
     msg: |-
@@ -30,9 +29,8 @@
       fm_ds_sanity_packages: {{ fm_ds_sanity_packages }}
       al_debug: {{ al_debug }}
       al_sanity_packages_required:
-        {{ al_sanity_packages_required | to_yaml(indent=2) | indent(2)}}
+        {{ al_sanity_packages_required | to_yaml(indent=2) | indent(2) }}
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
 
 # EOF
-...

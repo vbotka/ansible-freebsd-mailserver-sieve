@@ -23,12 +23,13 @@ The dependencies are not listed in the meta file. Install them manually.
 
 ### Collections
 
-- community.general
+* community.crypto
+* community.general
 
 
 ## Variables
 
-Review the defaults and examples in vars.
+See the defaults and examples in vars.
 
 
 ## Workflow
@@ -50,14 +51,11 @@ shell> ansible-galaxy role install vbotka.ansible_lib
 3) Install collections if necessary
 
 ```bash
+shell> ansible-galaxy collection install community.crypto
 shell> ansible-galaxy collection install community.general
 ```
 
-4) Fit variables, for example in vars/main.yml
-
-```bash
-shell> editor vbotka.freebsd_mailserver_sieve/vars/main.yml
-```
+4) Fit variables to your needs.
 
 5) Create the playbook and inventory
 

@@ -21,9 +21,10 @@ Major Changes
 Minor Changes
 -------------
 * Update README.
-* Update debug
+* Update debug.
 * Update lint configuration
 * Add var fm_ds_role_version
+* Fix lint.
 
 Bugfixes
 --------

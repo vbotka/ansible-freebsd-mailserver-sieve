@@ -3,17 +3,17 @@
 
 - name: Import debug.yml
   ansible.builtin.import_tasks: debug.yml
-  when: fm_ds_debug|bool
+  when: fm_ds_debug | bool
   tags: fm_ds_debug
 
 - name: Import packages.yml
   ansible.builtin.import_tasks: packages.yml
-  when: fm_ds_install|bool
+  when: fm_ds_install | bool
   tags: fm_ds_packages
 
 - name: Import sanity.yml
   ansible.builtin.import_tasks: sanity.yml
-  when: fm_ds_sanity|bool
+  when: fm_ds_sanity | bool
   tags: fm_ds_sanity
 
 - name: Import conf.yml
@@ -21,4 +21,3 @@
   tags: fm_ds_conf
 
 # EOF
-...
