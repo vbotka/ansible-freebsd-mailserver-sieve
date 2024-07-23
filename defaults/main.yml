@@ -21,9 +21,12 @@ fm_ds_sanity: true
 fm_ds_sanity_platform: true
 fm_ds_sanity_ansible_version: true
 fm_ds_sanity_packages: true
-
-# See vbotka.freebsd_mailserver
-# al_supported_versions_override: []
+# sanity: override supported versions
+al_supported_versions_override: "{{ al_supported_versions_override_rel | flatten }}"
+al_supported_versions_override_rel:
+  - ["12.2", "12.3", "12.4"]
+  - ["13.0", "13.1", "13.2", "13.3"]
+  - ["14.0", "14.1"]
 al_sanity_platform_warning: false
 
 # packages test required
