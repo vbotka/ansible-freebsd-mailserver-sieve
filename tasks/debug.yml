@@ -3,33 +3,34 @@
 - name: Debug
   vars:
     msg: |-
-         ansible_architecture: {{ ansible_architecture }}
-         ansible_os_family: {{ ansible_os_family }}
-         ansible_distribution: {{ ansible_distribution }}
-         ansible_distribution_major_version: {{ ansible_distribution_major_version }}
-         ansible_distribution_version: {{ ansible_distribution_version }}
-         ansible_distribution_release: {{ ansible_distribution_release }}
-         ansible_python_version: {{ ansible_python_version }}
+      fm_ds_role_version: {{ fm_ds_role_version }}
+      ansible_architecture: {{ ansible_architecture }}
+      ansible_os_family: {{ ansible_os_family }}
+      ansible_distribution: {{ ansible_distribution }}
+      ansible_distribution_major_version: {{ ansible_distribution_major_version }}
+      ansible_distribution_version: {{ ansible_distribution_version }}
+      ansible_distribution_release: {{ ansible_distribution_release }}
+      ansible_python_version: {{ ansible_python_version }}
 
-         freebsd_install_method: {{ freebsd_install_method }}
-         freebsd_use_packages: {{ freebsd_use_packages }}
-         freebsd_mailserver_dovecot_protocols: {{ freebsd_mailserver_dovecot_protocols }}
+      freebsd_install_method: {{ freebsd_install_method }}
+      freebsd_use_packages: {{ freebsd_use_packages }}
+      freebsd_mailserver_dovecot_protocols: {{ freebsd_mailserver_dovecot_protocols }}
 
-         fm_ds_backup_conf: {{ fm_ds_backup_conf }}
-         fm_ds_install: {{ fm_ds_install }}
-         fm_ds_packages:
-           {{ fm_ds_packages|to_nice_yaml(indent=2)|indent(2) }}
-         fm_ds_director:
-           {{ fm_ds_director|to_yaml(indent=2)|indent(2) }}
-         fm_ds_lda:
-           {{ fm_ds_lda|to_yaml(indent=2)|indent(2) }}
-         fm_ds_sanity: {{ fm_ds_sanity }}
-         fm_ds_sanity_platform: {{ fm_ds_sanity_platform }}
-         fm_ds_sanity_ansible_version: {{ fm_ds_sanity_ansible_version }}
-         fm_ds_sanity_packages: {{ fm_ds_sanity_packages }}
-         al_debug: {{ al_debug }}
-         al_sanity_packages_required:
-           {{ al_sanity_packages_required|to_yaml(indent=2)|indent(2)}}
+      fm_ds_backup_conf: {{ fm_ds_backup_conf }}
+      fm_ds_install: {{ fm_ds_install }}
+      fm_ds_packages:
+        {{ fm_ds_packages | to_nice_yaml(indent=2) | indent(2) }}
+      fm_ds_director:
+        {{ fm_ds_director | to_yaml(indent=2) | indent(2) }}
+      fm_ds_lda:
+        {{ fm_ds_lda | to_yaml(indent=2) | indent(2) }}
+      fm_ds_sanity: {{ fm_ds_sanity }}
+      fm_ds_sanity_platform: {{ fm_ds_sanity_platform }}
+      fm_ds_sanity_ansible_version: {{ fm_ds_sanity_ansible_version }}
+      fm_ds_sanity_packages: {{ fm_ds_sanity_packages }}
+      al_debug: {{ al_debug }}
+      al_sanity_packages_required:
+        {{ al_sanity_packages_required | to_yaml(indent=2) | indent(2)}}
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
 
