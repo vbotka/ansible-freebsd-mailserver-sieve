@@ -1,6 +1,6 @@
 ---
 # defaults for freebsd_mailserver_sieve
-fm_ds_role_version: 2.6.0
+fm_ds_role_version: 2.6.1
 
 fm_ds_install: true
 fm_ds_debug: false
