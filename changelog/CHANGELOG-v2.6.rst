@@ -3,6 +3,25 @@ vbotka.freebsd_mailserver_sieve 2.6 Release Notes
 =================================================
 
 .. contents:: Topics
+# BEGIN Commits 2.6.1
+- Update tests/test.yml playbook.
+- Add var al_supported_versions_override
+- Start 2.6.1 devel
+# END Commits 2.6.1
+# BEGIN Release notes 2.6.1
+2.6.1
+=====
+Release Summary
+---------------
+Major Changes
+-------------
+Minor Changes
+-------------
+Bugfixes
+--------
+Breaking Changes / Porting Guide
+--------------------------------
+# END Release notes 2.6.1
 
 
 2.6.1
