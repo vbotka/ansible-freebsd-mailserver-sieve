@@ -4,6 +4,7 @@ vbotka.freebsd_mailserver_sieve 2.6 Release Notes
 
 .. contents:: Topics
 # BEGIN Commits 2.6.1
+- Update python 3.11 in .travis.yml
 - Update tests/test.yml playbook.
 - Add var al_supported_versions_override
 - Start 2.6.1 devel
@@ -17,6 +18,11 @@ Major Changes
 -------------
 Minor Changes
 -------------
+- Update python 3.11 in .travis.yml
+- Update tests/test.yml playbook.
+- Add var al_supported_versions_override
+- Start 2.6.1 devel
+
 Bugfixes
 --------
 Breaking Changes / Porting Guide
